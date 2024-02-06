@@ -19,7 +19,14 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
+    up:
     cout<<"Enter the key element\n";
     cin>>key;
-    cout<<"The the element "<<key<<" is found on location "<<LS(arr,n,key);
+    int loc=LS(arr,n,key);
+    if(loc!=-1){
+    cout<<"The the element "<<key<<" is found on location "<<loc;}
+    else{
+        cout<<"No element found\n";
+        goto up;
+    }
 }
