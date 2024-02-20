@@ -24,15 +24,14 @@ int main(){
                 list[i] = list[j];
                 list[j] = temp;
     }}}
-    for(int m=0;m<n;m++){
-    cout<<list[m]<<" ";}
+    UP:
     cout<<"\nEnter the Key element to be found\n";
     cin>>key;
     int loc=BS(list,n,key);
     if (loc!=-1){
-        cout<<"\nThe element "<<key<<" is found at index "<<loc<<endl;
+        cout<<"\nThe element "<<key<<" is found at index "<<loc<<endl;goto UP;
     }
     else{
-        cout<<"\nElement not found      Enter the correct element \n";
+        cout<<"\nElement not found      Enter the correct element \n";goto UP;
     }
 }
