@@ -1,4 +1,9 @@
 #include<iostream>
+int LS(int arr[],int n);
+int BS(int arr[],int n);
+int B_sort(int arr[],int n);                                                        
+int I_sort(int arr[],int n);
+int S_sort(int arr[],int n);
 using namespace std;
 int main(){
     int n,key,a,b;
@@ -15,15 +20,15 @@ int main(){
     switch (a){
         case 1:
             cout<<"We are using Bubble sort technique\n";
-            B_Sort(n,arr);
+            arr[n]=B_sort(arr,n);
             break;
         case 2:
             cout<<"We are using Insertion sort technique\n";
-            I_sort(n,arr);
+            arr[n]=I_sort(arr,n);
             break;
         case 3:
             cout<<"We are using Selection sort technique\n";
-            S_Sort(n,arr);
+            arr[n]=S_sort(arr,n);
             break;
     }
     cout<<"The sorted array is:";
@@ -39,8 +44,10 @@ int main(){
             cout<<"We are using Linear search:\n";
             key=LS(arr,n);
             cout<<"The element is found at location "<<key<<endl;
-            
-
+        case 2:
+            cout<<"We are using Binary Search:\n";
+            key=BS(arr,n);    
+            cout<<"The element is found at location "<<key<<endl;
     }
 
     return 0;
@@ -49,6 +56,7 @@ int main(){
 
 int LS(int arr[],int n){
     int key;
+    string str=("Element not found");
     cout<<"Enter element to find\n";
     cin>>key;
     for(int i=0;i<n;i++){
@@ -56,19 +64,25 @@ int LS(int arr[],int n){
             return i+1;
         }
     }
-    return -1;
+    cout<<str;
+    return 0;
 }
-int BS(int list[],int n,int key){
+int BS(int arr[],int n){
+    int key;
+    string str=("Element not found");
+    cout<<"Enter element to found:";
+    cin>>key;
     int L=0,H=n;
     while(L<=H){
         int mid=(L+H)/2;
-        if (key==list[mid]){return mid;}
-        else if(key < list[mid]){H=mid-1;}
+        if (key==arr[mid]){return mid;}
+        else if(key < arr[mid]){H=mid-1;}
         else{L=mid+1;}
     }
-    return -1;
+    cout<<str;
+    return 0;
 }
-int B_Sort(int n,int arr[]){
+int B_sort(int arr[],int n){
     int x=1;
         while(x<n){
         for(int i=0;i<n-x;i++){
@@ -82,7 +96,7 @@ int B_Sort(int n,int arr[]){
     }
     return arr[n];
 }
-int I_sort(int n,int arr[]){
+int I_sort(int arr[],int n){
 
         for(int i=1;i<n;i++){
         int key=arr[i];
@@ -95,7 +109,7 @@ int I_sort(int n,int arr[]){
     }
     return arr[n];
 }
-int S_Sort(int n,int arr[]){
+int S_sort(int arr[],int n){
         for(int i=0;i<n-1;i++){
         for(int j=i+1;j<n;j++){
             if(arr[i]>arr[j]){
