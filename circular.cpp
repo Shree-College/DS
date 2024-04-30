@@ -10,14 +10,12 @@ class A{
     void push(int x){
         if((F==R+1) || (R==N-1 && F==0)){
             cout<<"Queue is full\n";
-            cout<<R<<"  "<<F<<endl;
         }
         else{
             if(R==N-1){R=0;}
             else{R++;}
             arr[R]=x;
-            if(F==-1){F=0;}
-            cout<<R<<"  "<<F<<endl;
+            if(F==-1){F=0;}  
         }
     }
  int pop(){
@@ -34,12 +32,18 @@ void print(){
         if(F==-1 || R == -1){cout<<"Queue is empty\n";}
         else if(R>=F){
             for(int i=F;i<=R;i++){
-cout<<arr[i]<<" | ";
-           }
+                cout<<arr[i]<<" | ";
+           }}
         else{
-        for(int i=R;i<N;i++){
+        for(int i=0;i<=R;i++){
                 cout<<arr[i]<<" | ";
             }
+        for(int i=R+1;i<F;i++){
+            cout<<"  | ";
+        }
+        for(int i=F;i<N;i++){
+            cout<<arr[i]<<" | ";
+        }
         }
     }
 };
